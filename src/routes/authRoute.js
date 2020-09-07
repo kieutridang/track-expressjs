@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
@@ -13,7 +14,8 @@ router.post("/signup", (req, res, next) => {
     .save()
     .then((doc) => {
       console.log(doc);
-      res.send(doc);
+      const token = jwt.sign({ userId: user._id }, "SECRET-KEY");
+      res.send({ token });
     })
     .catch((err) => {
       res.status(500).send({ error: err.message });
