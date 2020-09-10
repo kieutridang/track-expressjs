@@ -1,8 +1,10 @@
 // MODELS
 require("./models/User");
+require("./models/Tracks");
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/authRoute");
+const trackRoute = require("./routes/trackRoute");
 const bodyParser = require("body-parser");
 const handleError = require("./middlewares/errorHandler");
 const requireAuth = require("./middlewares/requireAuth");
@@ -10,6 +12,7 @@ const requireAuth = require("./middlewares/requireAuth");
 const app = express();
 app.use(bodyParser.json());
 app.use(authRoute);
+app.use(trackRoute);
 
 app.get("/", requireAuth, (req, res) => {
   res.send("sup dude " + req.user.email);

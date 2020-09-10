@@ -7,7 +7,7 @@ const User = mongoose.model("User");
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization) {
-    next(new Unauthorized("Require token !"));
+    return next(new Unauthorized("Require token !"));
   }
 
   const token = authorization.split("Bearer ")[1];
