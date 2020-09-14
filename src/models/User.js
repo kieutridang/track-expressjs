@@ -9,13 +9,17 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: false,
+  },
+  userAppleId: {
+    type: String,
+    require: false,
   },
 });
 
 userSchema.pre("save", function (next) {
   const user = this;
-  if (!user.isModified("password")) {
+  if (!user.isModified("password") || !user.password) {
     return next();
   }
 

@@ -1,3 +1,4 @@
+require("dotenv").config();
 // MODELS
 require("./models/User");
 require("./models/Tracks");

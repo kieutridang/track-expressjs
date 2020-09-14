@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   }
 
   const token = authorization.split("Bearer ")[1];
-  jwt.verify(token, "SECRET-KEY", async (err, payload) => {
+  jwt.verify(token, process.env.JWT_SECRET_TOKEN, async (err, payload) => {
     try {
       if (err) {
         throw new Unauthorized("Invalid token !");
