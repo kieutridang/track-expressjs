@@ -1,0 +1,7 @@
+{
+  "client_id": "com.blkboxweb.blkbox",
+  "team_id": "7LLQ236QT2",
+  "redirect_uri": "https://ab57bdd445a8.ngrok.io/appleauth",
+  "key_id": "3LHM4Y7344",
+  "scope": "name email"
+}

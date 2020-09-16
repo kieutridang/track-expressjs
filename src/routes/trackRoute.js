@@ -4,7 +4,7 @@ const requireAuth = require("../middlewares/requireAuth");
 const { BadRequest } = require("../utils/errors");
 
 const router = express.Router();
-router.use(requireAuth);
+// router.use(requireAuth);
 
 const Track = mongoose.model("Track");
 
