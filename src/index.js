@@ -10,6 +10,8 @@ const bodyParser = require("body-parser");
 const handleError = require("./middlewares/errorHandler");
 const requireAuth = require("./middlewares/requireAuth");
 
+const port = process.env.PORT || 3001;
+
 const app = express();
 app.use(bodyParser.json());
 app.use(authRoute);
@@ -21,8 +23,8 @@ app.get("/", requireAuth, (req, res) => {
 
 app.use(handleError);
 
-app.listen(3001, () => {
-  console.log("listening on port 3001");
+app.listen(port, () => {
+  console.log("listening on port " + port);
 });
 
 const connectionString =

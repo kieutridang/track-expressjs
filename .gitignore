@@ -1,2 +1,3 @@
 node_modules
-authkey.p8
+.env
+npm-debug.log
